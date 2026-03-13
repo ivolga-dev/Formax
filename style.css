@@ -1,7 +1,8 @@
 :root {
-  --text: #f4f4f5;
-  --glass: rgba(200, 200, 200, 0.35);
-  --glass-dark: rgba(95, 95, 100, 0.42);
+  --text: #f2f2f3;
+  --card: rgba(30, 33, 39, 0.58);
+  --card-border: rgba(255, 255, 255, 0.18);
+  --panel: rgba(14, 16, 21, 0.8);
 }
 
 * {
@@ -16,7 +17,7 @@ body {
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #2a2a2d;
+  background: #2b2d33;
 }
 
 .background-video {
@@ -26,49 +27,45 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -2;
-  filter: grayscale(1) contrast(1.06);
+  filter: grayscale(1) contrast(1.1) brightness(0.9);
 }
 
-body::before {
+body::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.12), transparent 40%),
-    radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.1), transparent 35%);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.08), transparent 42%);
 }
 
 .card {
-  width: min(92vw, 420px);
-  min-height: 780px;
-  padding: 30px 28px;
-  border-radius: 40px;
-  background: var(--glass);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.32);
+  width: min(92vw, 620px);
+  min-height: 1120px;
+  border-radius: 46px;
+  border: 1px solid var(--card-border);
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02) 30%, rgba(0, 0, 0, 0.12)),
+    var(--card);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  padding: 48px 40px 34px;
   position: relative;
   overflow: hidden;
   opacity: 0;
   transform-origin: center;
-  animation: windowReveal 1.05s cubic-bezier(0.2, 0.9, 0.22, 1) forwards;
-}
-
-.profile {
-  padding-top: 4px;
+  animation: windowReveal 1s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
 }
 
 .intro-item {
   opacity: 0;
-  transform-origin: center;
-  animation: windowReveal 0.66s cubic-bezier(0.2, 0.9, 0.22, 1) forwards;
+  animation: itemReveal 0.55s ease forwards;
 }
 
-.intro-delay-1 { animation-delay: 0.9s; }
-.intro-delay-2 { animation-delay: 1.1s; }
-.intro-delay-3 { animation-delay: 1.3s; }
-.intro-delay-4 { animation-delay: 1.6s; }
-.intro-delay-5 { animation-delay: 1.85s; }
+.intro-delay-1 { animation-delay: 0.8s; }
+.intro-delay-2 { animation-delay: 1s; }
+.intro-delay-3 { animation-delay: 1.2s; }
+.intro-delay-4 { animation-delay: 1.4s; }
+.intro-delay-5 { animation-delay: 1.6s; }
+.intro-delay-6 { animation-delay: 2s; }
 
 .profile__name,
 .profile__role {
@@ -77,39 +74,51 @@ body::before {
 }
 
 .profile__name {
-  font-size: 2.2rem;
-  margin-bottom: 14px;
+  font-size: 4.3rem;
   font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .profile__avatar {
-  width: 150px;
-  height: 150px;
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
   display: block;
-  margin: 0 auto 14px;
+  margin: 0 auto 22px;
   object-fit: cover;
   background: #000;
 }
 
 .profile__role {
-  font-size: 1.8rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 26px;
+  font-size: 3rem;
+  margin-bottom: 32px;
 }
 
 .links {
   display: grid;
-  gap: 14px;
+  gap: 18px;
 }
 
 .social-link {
   display: grid;
-  grid-template-columns: 38px 1fr;
+  grid-template-columns: 66px 1fr;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+  border-radius: 20px;
   text-decoration: none;
   color: var(--text);
+  padding: 10px 14px;
+  background: rgba(7, 10, 17, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.social-link__icon-wrap {
+  width: 66px;
+  height: 66px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .social-link img {
@@ -118,36 +127,28 @@ body::before {
   object-fit: contain;
 }
 
-.social-link span {
-  background: rgba(220, 220, 220, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 14px;
-  text-align: center;
-  font-size: 1.85rem;
-  padding: 12px 16px;
+.social-link__text {
+  font-size: 3rem;
 }
 
 .player {
-  position: absolute;
-  left: 50%;
-  bottom: 26px;
-  width: calc(100% - 56px);
-  transform: translateX(-50%);
+  margin-top: 62px;
   display: grid;
   grid-template-columns: auto 1fr;
+  gap: 16px;
   align-items: center;
-  gap: 10px;
   opacity: 0;
-  animation: playerReveal 0.66s 2.25s cubic-bezier(0.2, 0.9, 0.22, 1) forwards;
+  animation: itemReveal 0.6s 1.8s ease forwards;
 }
 
 .playlist-toggle {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   background: transparent;
   cursor: pointer;
+  opacity: 0.6;
 }
 
 .playlist-toggle img {
@@ -161,122 +162,129 @@ body::before {
 }
 
 .player-shell {
-  background: var(--glass-dark);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 20px;
-  padding: 12px;
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 34px;
+  padding: 20px 22px;
 }
 
 .track-line {
-  min-height: 20px;
-  margin-bottom: 8px;
+  min-height: 38px;
+  margin-bottom: 14px;
   text-align: center;
-  font-size: 0.88rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 2.8rem;
 }
 
 input[type='range'] {
   width: 100%;
   accent-color: #fff;
-  margin: 3px 0 10px;
+  margin: 2px 0 18px;
 }
 
 .controls {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 26px;
 }
 
 .icon-btn {
   border: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.12);
+  width: 82px;
+  height: 66px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.09);
   cursor: pointer;
 }
 
 .icon-btn img {
-  width: 19px;
-  height: 19px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
 }
 
 .playlist {
   grid-column: 1 / -1;
-  margin-top: 10px;
-  background: rgba(18, 18, 20, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 16px;
-  padding: 10px;
+  margin-top: 12px;
+  background: rgba(14, 14, 14, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+  padding: 14px;
 }
 
 .playlist h2 {
-  margin: 4px 4px 10px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  margin: 4px 6px 10px;
+  font-size: 1rem;
 }
 
 .playlist ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  max-height: 130px;
+  max-height: 170px;
   overflow: auto;
   display: grid;
-  gap: 6px;
+  gap: 8px;
 }
 
 .playlist button {
   width: 100%;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: left;
-  padding: 10px;
+  padding: 12px;
   color: #f3f4f6;
   background: rgba(255, 255, 255, 0.12);
   cursor: pointer;
 }
 
 .playlist button.active {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.34);
   color: #111;
 }
 
-@keyframes playerReveal {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) scale(0.08, 0.18);
-    filter: blur(2px);
-  }
-  58% {
-    opacity: 1;
-    transform: translateX(-50%) scale(1.08, 1.08);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(-50%) scale(1);
-    filter: blur(0);
-  }
+.credits {
+  margin-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  padding-top: 24px;
+  text-align: center;
+  font-size: 2.4rem;
+  color: rgba(243, 244, 246, 0.8);
 }
 
 @keyframes windowReveal {
-  0% {
-    opacity: 0;
-    transform: scale(0.08, 0.18);
-    filter: blur(2px);
+  0% { opacity: 0; transform: scale(0.08, 0.18); }
+  60% { opacity: 1; transform: scale(1.08, 1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes itemReveal {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 760px) {
+  .card {
+    min-height: 760px;
+    border-radius: 30px;
+    padding: 34px 24px 24px;
+    width: min(94vw, 380px);
   }
-  58% {
-    opacity: 1;
-    transform: scale(1.08, 1.08);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
-  }
+
+  .profile__name { font-size: 2.1rem; }
+  .profile__avatar { width: 130px; height: 130px; }
+  .profile__role { font-size: 1.1rem; margin-bottom: 22px; }
+
+  .social-link { grid-template-columns: 44px 1fr; gap: 10px; padding: 7px 9px; }
+  .social-link__icon-wrap { width: 44px; height: 44px; border-radius: 10px; }
+  .social-link img { width: 25px; height: 25px; }
+  .social-link__text { font-size: 1.05rem; }
+
+  .player { margin-top: 34px; gap: 8px; }
+  .player-shell { border-radius: 20px; padding: 12px; }
+  .track-line { font-size: 1.1rem; min-height: 24px; }
+  .controls { gap: 10px; }
+  .icon-btn { width: 40px; height: 38px; border-radius: 10px; }
+  .icon-btn img { width: 20px; height: 20px; }
+
+  .credits { font-size: 0.8rem; margin-top: 16px; padding-top: 14px; }
 }
