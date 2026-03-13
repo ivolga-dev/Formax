@@ -4,10 +4,7 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const seekBar = document.getElementById('seekBar');
 const currentTrack = document.getElementById('currentTrack');
-const playlistNode = document.getElementById('playlist');
 const playIcon = document.getElementById('playIcon');
-const playlistToggle = document.getElementById('playlistToggle');
-const playlistMenu = document.getElementById('playlistMenu');
 
 let tracks = [];
 let currentIndex = 0;
@@ -16,14 +13,6 @@ const iconMap = {
   play: 'icons/play.png',
   pause: 'icons/pause.png',
 };
-
-playlistToggle.addEventListener('click', () => {
-  const expanded = playlistToggle.getAttribute('aria-expanded') === 'true';
-  const nextExpanded = !expanded;
-
-  playlistToggle.setAttribute('aria-expanded', String(nextExpanded));
-  playlistMenu.hidden = expanded;
-});
 
 playBtn.addEventListener('click', () => {
   if (!tracks.length) return;
@@ -114,25 +103,7 @@ function normalizeAndSort(items) {
 }
 
 function renderPlaylist() {
-  playlistNode.innerHTML = '';
-
-  if (!tracks.length) {
-    const li = document.createElement('li');
-    li.textContent = 'Папка mp3 пуста. Добавьте файлы .mp3';
-    li.style.opacity = '0.85';
-    playlistNode.append(li);
-    return;
-  }
-
-  tracks.forEach((track, index) => {
-    const li = document.createElement('li');
-    const button = document.createElement('button');
-    button.textContent = track.title;
-    if (index === currentIndex) button.classList.add('active');
-    button.addEventListener('click', () => loadTrack(index, true));
-    li.append(button);
-    playlistNode.append(li);
-  });
+  // Плейлист в интерфейсе скрыт по запросу пользователя, оставлены только кнопки управления.
 }
 
 function loadTrack(index, autoplay = false) {
