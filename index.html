@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glass Music Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <video class="background-video" autoplay muted loop playsinline>
+      <source src="background.mp4" type="video/mp4" />
+    </video>
+
+    <main class="card" aria-label="Профиль и музыкальный плеер">
+      <section class="profile" id="profileBlock">
+        <h1 class="profile__name">imskriprrc</h1>
+        <img class="profile__avatar" src="icons/avatar-placeholder.png" alt="Avatar" />
+        <p class="profile__role">motion designer</p>
+
+        <div class="links">
+          <a class="social-link" href="#" aria-label="Telegram">
+            <img src="icons/telegram.png" alt="" />
+            <span>Telegram</span>
+          </a>
+          <a class="social-link" href="#" aria-label="TikTok">
+            <img src="icons/tiktok.png" alt="" />
+            <span>Tiktok</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="player" id="playerBlock">
+        <button id="playlistToggle" class="playlist-toggle" aria-expanded="false" aria-controls="playlistMenu">
+          <img src="icons/arrow-right.png" alt="Открыть плейлист" />
+        </button>
+
+        <div class="player-shell">
+          <div class="track-line">
+            <span id="currentTrack">Нет трека</span>
+          </div>
+
+          <input id="seekBar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Позиция трека" />
+
+          <div class="controls">
+            <button id="prevBtn" class="icon-btn" aria-label="Предыдущий трек">
+              <img src="icons/prev.png" alt="" />
+            </button>
+            <button id="playBtn" class="icon-btn" aria-label="Пауза / Воспроизвести">
+              <img id="playIcon" src="icons/play.png" alt="" />
+            </button>
+            <button id="nextBtn" class="icon-btn" aria-label="Следующий трек">
+              <img src="icons/next.png" alt="" />
+            </button>
+          </div>
+        </div>
+
+        <aside id="playlistMenu" class="playlist" hidden>
+          <h2>Плейлист</h2>
+          <ul id="playlist"></ul>
+        </aside>
+      </section>
+    </main>
+
+    <audio id="audio"></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>

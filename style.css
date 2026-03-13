@@ -1,0 +1,251 @@
+:root {
+  --text: #f4f4f5;
+  --glass: rgba(200, 200, 200, 0.35);
+  --glass-strong: rgba(210, 210, 210, 0.45);
+  --dark: rgba(15, 15, 16, 0.85);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, sans-serif;
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #2a2a2d;
+}
+
+.background-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: grayscale(1) contrast(1.05);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(255, 255, 255, 0.1), transparent 35%);
+}
+
+.card {
+  width: min(92vw, 420px);
+  min-height: 780px;
+  padding: 28px;
+  border-radius: 40px;
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile {
+  animation: revealTop 0.9s ease both;
+}
+
+.profile__name,
+.profile__role {
+  text-align: center;
+  margin: 0;
+}
+
+.profile__name {
+  font-size: 2.2rem;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.profile__avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 14px;
+  object-fit: cover;
+  background: #000;
+}
+
+.profile__role {
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 26px;
+}
+
+.links {
+  display: grid;
+  gap: 14px;
+}
+
+.social-link {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.social-link img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.social-link span {
+  background: rgba(220, 220, 220, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  text-align: center;
+  font-size: 1.85rem;
+  padding: 12px 16px;
+}
+
+.player {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 12px;
+  animation: revealBottom 1s ease both;
+}
+
+.playlist-toggle {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  align-self: center;
+  cursor: pointer;
+}
+
+.playlist-toggle img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.playlist-toggle[aria-expanded="true"] img {
+  transform: rotate(90deg);
+}
+
+.player-shell {
+  background: var(--glass-strong);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 22px;
+  padding: 14px;
+}
+
+.track-line {
+  min-height: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #fff;
+  margin: 4px 0 12px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.icon-btn {
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+.icon-btn img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.playlist {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+  background: rgba(18, 18, 20, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  padding: 10px;
+}
+
+.playlist h2 {
+  margin: 4px 4px 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.playlist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 140px;
+  overflow: auto;
+  display: grid;
+  gap: 6px;
+}
+
+.playlist button {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  text-align: left;
+  padding: 10px;
+  color: #f3f4f6;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+}
+
+.playlist button.active {
+  background: rgba(255, 255, 255, 0.35);
+  color: #111;
+}
+
+@keyframes revealTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealBottom {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
