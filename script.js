@@ -7,7 +7,7 @@ const currentTrack = document.getElementById('currentTrack');
 const playlistNode = document.getElementById('playlist');
 const playIcon = document.getElementById('playIcon');
 const playlistToggle = document.getElementById('playlistToggle');
-const playlistMenu = document.getElementById('playlistMenu');
+const playerPanel = document.getElementById('playerPanel');
 
 let tracks = [];
 let currentIndex = 0;
@@ -19,8 +19,10 @@ const iconMap = {
 
 playlistToggle.addEventListener('click', () => {
   const expanded = playlistToggle.getAttribute('aria-expanded') === 'true';
-  playlistToggle.setAttribute('aria-expanded', String(!expanded));
-  playlistMenu.hidden = expanded;
+  const nextExpanded = !expanded;
+
+  playlistToggle.setAttribute('aria-expanded', String(nextExpanded));
+  playerPanel.hidden = !nextExpanded;
 });
 
 playBtn.addEventListener('click', () => {

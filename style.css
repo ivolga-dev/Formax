@@ -2,7 +2,6 @@
   --text: #f4f4f5;
   --glass: rgba(200, 200, 200, 0.35);
   --glass-strong: rgba(210, 210, 210, 0.45);
-  --dark: rgba(15, 15, 16, 0.85);
 }
 
 * {
@@ -115,11 +114,10 @@ body::before {
 }
 
 .player {
-  margin-top: 28px;
+  margin-top: 24px;
   display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: start;
-  gap: 12px;
+  justify-items: start;
+  gap: 10px;
   animation: revealBottom 1s ease both;
 }
 
@@ -129,7 +127,6 @@ body::before {
   border: none;
   border-radius: 10px;
   background: transparent;
-  align-self: center;
   cursor: pointer;
 }
 
@@ -141,6 +138,11 @@ body::before {
 
 .playlist-toggle[aria-expanded="true"] img {
   transform: rotate(90deg);
+}
+
+.player-panel {
+  width: 100%;
+  animation: revealBottom 0.35s ease both;
 }
 
 .player-shell {
@@ -188,7 +190,6 @@ input[type="range"] {
 }
 
 .playlist {
-  grid-column: 1 / -1;
   margin-top: 10px;
   background: rgba(18, 18, 20, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.18);

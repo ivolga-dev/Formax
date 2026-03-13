@@ -36,34 +36,36 @@
       </section>
 
       <section class="player" id="playerBlock">
-        <button id="playlistToggle" class="playlist-toggle" aria-expanded="false" aria-controls="playlistMenu">
-          <img src="icons/arrow-right.png" alt="Открыть плейлист" />
+        <button id="playlistToggle" class="playlist-toggle" aria-expanded="false" aria-controls="playerPanel">
+          <img src="icons/arrow-right.png" alt="Открыть плеер" />
         </button>
 
-        <div class="player-shell">
-          <div class="track-line">
-            <span id="currentTrack">Нет трека</span>
+        <div id="playerPanel" class="player-panel" hidden>
+          <div class="player-shell">
+            <div class="track-line">
+              <span id="currentTrack">Нет трека</span>
+            </div>
+
+            <input id="seekBar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Позиция трека" />
+
+            <div class="controls">
+              <button id="prevBtn" class="icon-btn" aria-label="Предыдущий трек">
+                <img src="icons/prev.png" alt="" />
+              </button>
+              <button id="playBtn" class="icon-btn" aria-label="Пауза / Воспроизвести">
+                <img id="playIcon" src="icons/play.png" alt="" />
+              </button>
+              <button id="nextBtn" class="icon-btn" aria-label="Следующий трек">
+                <img src="icons/next.png" alt="" />
+              </button>
+            </div>
           </div>
 
-          <input id="seekBar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Позиция трека" />
-
-          <div class="controls">
-            <button id="prevBtn" class="icon-btn" aria-label="Предыдущий трек">
-              <img src="icons/prev.png" alt="" />
-            </button>
-            <button id="playBtn" class="icon-btn" aria-label="Пауза / Воспроизвести">
-              <img id="playIcon" src="icons/play.png" alt="" />
-            </button>
-            <button id="nextBtn" class="icon-btn" aria-label="Следующий трек">
-              <img src="icons/next.png" alt="" />
-            </button>
-          </div>
+          <aside id="playlistMenu" class="playlist">
+            <h2>Плейлист</h2>
+            <ul id="playlist"></ul>
+          </aside>
         </div>
-
-        <aside id="playlistMenu" class="playlist" hidden>
-          <h2>Плейлист</h2>
-          <ul id="playlist"></ul>
-        </aside>
       </section>
     </main>
 
