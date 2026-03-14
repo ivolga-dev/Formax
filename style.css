@@ -1,8 +1,8 @@
 :root {
   --text: #f2f2f3;
-  --card: rgba(30, 33, 39, 0.58);
+  --card: rgba(82, 82, 81, 0.1);
   --card-border: rgba(255, 255, 255, 0.18);
-  --panel: rgba(14, 16, 21, 0.8);
+  --panel: rgba(97, 97, 97, 0.4);
 }
 
 * {
@@ -42,7 +42,7 @@ body::after {
   width: min(92vw, 620px);
   min-height: 1120px;
   border-radius: 46px;
-  border: 1px solid var(--card-border);
+  border: 2px solid var(--card-border);
   background: linear-gradient(130deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02) 30%, rgba(0, 0, 0, 0.12)),
     var(--card);
   backdrop-filter: blur(18px);
@@ -108,7 +108,7 @@ body::after {
   text-decoration: none;
   color: var(--text);
   padding: 10px 14px;
-  background: rgba(7, 10, 17, 0.35);
+  background: rgba(82, 81, 81, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -183,7 +183,7 @@ input[type='range'] {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   padding-top: 24px;
   text-align: center;
-  font-size: 2.4rem;
+  font-size: 1.5rem;
   color: rgba(243, 244, 246, 0.8);
 }
 
