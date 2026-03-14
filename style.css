@@ -40,8 +40,9 @@ body::after {
 }
 
 .card {
-  width: min(88vw, 520px);
-  height: min(960px, calc(100dvh - 20px));
+  width: min(92vw, 420px, calc((100dvh - 20px) * 9 / 16));
+  aspect-ratio: 9 / 16;
+  max-height: calc(100dvh - 20px);
   border-radius: 40px;
   border: 1px solid var(--card-border);
   background: linear-gradient(130deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02) 30%, rgba(0, 0, 0, 0.12)),
@@ -209,8 +210,9 @@ input[type='range'] {
   }
 
   .card {
-    width: min(95vw, 380px);
-    height: min(760px, calc(100dvh - 16px));
+    width: min(94vw, 360px, calc((100dvh - 16px) * 9 / 16));
+    aspect-ratio: 9 / 16;
+    max-height: calc(100dvh - 16px);
     border-radius: 28px;
     padding: 24px 16px 16px;
   }
@@ -232,37 +234,4 @@ input[type='range'] {
   .icon-btn img { width: 18px; height: 18px; }
 
   .credits { font-size: 0.58rem; margin-top: 10px; padding-top: 10px; }
-}
-
-/* Explicit phone landscape handling for orientation switch */
-@media (max-width: 900px) and (orientation: landscape) {
-  body {
-    padding: 6px;
-  }
-
-  .card {
-    width: min(96vw, 820px);
-    height: calc(100dvh - 12px);
-    padding: 14px 16px 12px;
-    border-radius: 20px;
-  }
-
-  .profile__name { font-size: 1.24rem; margin-bottom: 8px; }
-  .profile__avatar { width: min(76px, 20vh); margin-bottom: 8px; }
-  .profile__role { font-size: 0.68rem; margin-bottom: 8px; }
-
-  .links { gap: 8px; }
-  .social-link { padding: 4px 6px; border-radius: 10px; }
-  .social-link__icon-wrap { width: 30px; height: 30px; }
-  .social-link img { width: 16px; height: 16px; }
-  .social-link__text { font-size: 0.66rem; }
-
-  .player { padding-top: 10px; }
-  .player-shell { padding: 8px; border-radius: 12px; }
-  .track-line { font-size: 0.66rem; min-height: 14px; margin-bottom: 4px; }
-  input[type='range'] { margin: 0 0 6px; }
-  .icon-btn { width: 28px; height: 26px; border-radius: 6px; }
-  .icon-btn img { width: 14px; height: 14px; }
-
-  .credits { margin-top: 8px; padding-top: 8px; font-size: 0.52rem; }
 }
