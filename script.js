@@ -2,9 +2,11 @@ const audio = document.getElementById('audio');
 const playBtn = document.getElementById('playBtn');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
-const seekBar = document.getElementById('seekBar');
-const currentTrack = document.getElementById('currentTrack');
 const playIcon = document.getElementById('playIcon');
+const currentTrack = document.getElementById('currentTrack');
+const seekBar = document.getElementById('seekBar');
+
+const MUSIC_DIR = 'mp';
 
 let tracks = [];
 let currentIndex = 0;
@@ -61,7 +63,7 @@ seekBar.addEventListener('input', () => {
 
 async function discoverTracks() {
   try {
-    const response = await fetch('mp3/');
+    const response = await fetch(`${MUSIC_DIR}/`);
     const html = await response.text();
 
     const parser = new DOMParser();
@@ -71,7 +73,7 @@ async function discoverTracks() {
     const discovered = links
       .map((link) => link.getAttribute('href'))
       .filter((href) => href && href.toLowerCase().endsWith('.mp3'))
-      .map((href) => `mp3/${decodeURIComponent(href).replace(/^\//, '')}`);
+      .map((href) => `${MUSIC_DIR}/${decodeURIComponent(href).replace(/^\//, '')}`);
 
     if (discovered.length) return normalizeAndSort(discovered);
   } catch {
@@ -79,11 +81,11 @@ async function discoverTracks() {
   }
 
   try {
-    const fallback = await fetch('mp3/playlist.json');
+    const fallback = await fetch(`${MUSIC_DIR}/playlist.json`);
     if (fallback.ok) {
       const list = await fallback.json();
       if (Array.isArray(list) && list.length) {
-        return normalizeAndSort(list.map((item) => `mp3/${item}`));
+        return normalizeAndSort(list.map((item) => `${MUSIC_DIR}/${item}`));
       }
     }
   } catch {
@@ -102,10 +104,6 @@ function normalizeAndSort(items) {
     .sort((a, b) => a.title.localeCompare(b.title, 'ru', { sensitivity: 'base' }));
 }
 
-function renderPlaylist() {
-  // Плейлист в интерфейсе скрыт по запросу пользователя, оставлены только кнопки управления.
-}
-
 function loadTrack(index, autoplay = false) {
   const track = tracks[index];
   if (!track) return;
@@ -113,23 +111,21 @@ function loadTrack(index, autoplay = false) {
   currentIndex = index;
   audio.src = track.path;
   currentTrack.textContent = track.title;
-  renderPlaylist();
 
   if (autoplay) {
     audio.play().catch(() => {
-      // User gesture may be required.
+      // user gesture may be required
     });
   }
 }
 
 async function init() {
   tracks = await discoverTracks();
-  renderPlaylist();
 
   if (tracks.length) {
     loadTrack(0, false);
   } else {
-    currentTrack.textContent = 'Нет доступных mp3-файлов';
+    currentTrack.textContent = 'Нет доступных mp3-файлов в папке /mp';
   }
 }
 
