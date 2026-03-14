@@ -40,8 +40,9 @@ body::after {
 }
 
 .card {
-  width: min(92vw, 420px, calc((100dvh - 20px) * 9 / 16));
+  width: min(420px, calc(100vw - 20px), calc((100dvh - 20px) * 9 / 16));
   aspect-ratio: 9 / 16;
+  max-width: calc(100vw - 20px);
   max-height: calc(100dvh - 20px);
   border-radius: 40px;
   border: 1px solid var(--card-border);
@@ -210,8 +211,9 @@ input[type='range'] {
   }
 
   .card {
-    width: min(94vw, 360px, calc((100dvh - 16px) * 9 / 16));
+    width: min(360px, calc(100vw - 16px), calc((100dvh - 16px) * 9 / 16));
     aspect-ratio: 9 / 16;
+    max-width: calc(100vw - 16px);
     max-height: calc(100dvh - 16px);
     border-radius: 28px;
     padding: 24px 16px 16px;
