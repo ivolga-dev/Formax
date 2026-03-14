@@ -206,21 +206,21 @@ input[type='range'] {
     width: min(94vw, 380px);
   }
 
-  .profile__name { font-size: 2.1rem; }
+  .profile__name { font-size: 1.9rem; }
   .profile__avatar { width: 130px; height: 130px; }
-  .profile__role { font-size: 1.1rem; margin-bottom: 22px; }
+  .profile__role { font-size: 1rem; margin-bottom: 22px; }
 
   .social-link { grid-template-columns: 44px 1fr; gap: 10px; padding: 7px 9px; }
   .social-link__icon-wrap { width: 44px; height: 44px; border-radius: 10px; }
   .social-link img { width: 25px; height: 25px; }
-  .social-link__text { font-size: 1.05rem; }
+  .social-link__text { font-size: 1rem; }
 
   .player { margin-top: 34px; }
   .player-shell { border-radius: 20px; padding: 12px; }
-  .track-line { font-size: 1.1rem; min-height: 24px; }
+  .track-line { font-size: 1rem; min-height: 24px; }
   .controls { gap: 10px; }
   .icon-btn { width: 40px; height: 38px; border-radius: 10px; }
   .icon-btn img { width: 20px; height: 20px; }
 
-  .credits { font-size: 0.8rem; margin-top: 16px; padding-top: 14px; }
+  .credits { font-size: 0.7rem; margin-top: 16px; padding-top: 14px; }
 }
