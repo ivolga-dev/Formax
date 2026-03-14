@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>imskriprrc bio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="background.mp4" type="video/mp4" />
+    </video>
+    <div class="bg-overlay"></div>
+
+    <main class="card">
+      <h1 class="title">imskriprrc</h1>
+      <img class="avatar" src="icons/avatar-placeholder.png" alt="avatar" />
+      <p class="subtitle">motion designer</p>
+
+      <section class="links" aria-label="social links">
+        <a class="link-item active" href="#" aria-label="Telegram">
+          <span class="icon-wrap"><img src="icons/telegram.png" alt="" /></span>
+          <span>Telegram</span>
+        </a>
+        <a class="link-item" href="#" aria-label="TikTok">
+          <span class="icon-wrap"><img src="icons/tiktok.png" alt="" /></span>
+          <span>Tiktok</span>
+        </a>
+      </section>
+
+      <section class="player" aria-label="music player">
+        <p id="trackName" class="track-name">Нет трека</p>
+        <audio id="audio"></audio>
+        <div class="controls">
+          <button class="control-btn" id="prevBtn" type="button" aria-label="Предыдущий трек">
+            <img src="icons/prev.png" alt="" />
+          </button>
+          <button class="control-btn play" id="playBtn" type="button" aria-label="Играть / пауза">
+            <img id="playIcon" src="icons/play.png" alt="" />
+          </button>
+          <button class="control-btn" id="nextBtn" type="button" aria-label="Следующий трек">
+            <img src="icons/next.png" alt="" />
+          </button>
+        </div>
+      </section>
+
+      <footer class="footer">Created by @lvolgadev</footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
