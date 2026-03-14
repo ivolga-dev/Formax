@@ -2,7 +2,6 @@ const audio = document.getElementById('audio');
 const playBtn = document.getElementById('playBtn');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
-const seekBar = document.getElementById('seekBar');
 const currentTrack = document.getElementById('currentTrack');
 const playIcon = document.getElementById('playIcon');
 
@@ -43,10 +42,6 @@ audio.addEventListener('pause', () => {
   playIcon.src = iconMap.play;
 });
 
-audio.addEventListener('timeupdate', () => {
-  if (!audio.duration) return;
-  seekBar.value = (audio.currentTime / audio.duration) * 100;
-});
 
 audio.addEventListener('ended', () => {
   if (!tracks.length) return;
@@ -54,10 +49,6 @@ audio.addEventListener('ended', () => {
   loadTrack(currentIndex, true);
 });
 
-seekBar.addEventListener('input', () => {
-  if (!audio.duration) return;
-  audio.currentTime = (seekBar.value / 100) * audio.duration;
-});
 
 async function discoverTracks() {
   try {

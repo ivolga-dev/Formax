@@ -16,7 +16,7 @@ body {
   color: var(--text);
   display: grid;
   place-items: center;
-  overflow: auto;
+  overflow: hidden;
   padding: 10px;
   background: #2b2d33;
 }
@@ -52,7 +52,7 @@ body::after {
   box-shadow: 0 26px 46px rgba(0, 0, 0, 0.42);
   padding: 34px 28px 24px;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   opacity: 0;
@@ -158,11 +158,6 @@ body::after {
   font-size: 1.25rem;
 }
 
-input[type='range'] {
-  width: 100%;
-  accent-color: #fff;
-  margin: 2px 0 12px;
-}
 
 .controls {
   display: flex;
