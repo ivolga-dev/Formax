@@ -19,15 +19,6 @@ body {
   overflow: hidden;
   background: #2b2d33;
 }
-img {
-    max-width: 10%;
-    height: auto; /* Сохраняет пропорции */
-}
-.container {
-    width: 50%;
-    max-width: 1200px; /* Ограничивает ширину на больших экранах */
-    margin: 0 auto;
-}
 
 .background-video {
   position: fixed;
