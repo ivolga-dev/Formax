@@ -17,7 +17,7 @@ body {
   display: grid;
   place-items: center;
   overflow: auto;
-  padding: 12px;
+  padding: 10px;
   background: #2b2d33;
 }
 
@@ -40,15 +40,15 @@ body::after {
 }
 
 .card {
-  width: min(92vw, 620px);
-  height: min(1120px, calc(100dvh - 24px));
-  border-radius: 46px;
+  width: min(88vw, 520px);
+  height: min(960px, calc(100dvh - 20px));
+  border-radius: 40px;
   border: 1px solid var(--card-border);
   background: linear-gradient(130deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02) 30%, rgba(0, 0, 0, 0.12)),
     var(--card);
   backdrop-filter: blur(18px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
-  padding: 48px 40px 34px;
+  box-shadow: 0 26px 46px rgba(0, 0, 0, 0.42);
+  padding: 34px 28px 24px;
   position: relative;
   overflow: auto;
   display: flex;
@@ -76,67 +76,68 @@ body::after {
   margin: 0;
 }
 
+/* -15% from previous design */
 .profile__name {
-  font-size: 3.65rem;
+  font-size: 3.1rem;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .profile__avatar {
-  width: min(210px, 32vw);
+  width: min(178px, 32vw);
   aspect-ratio: 1;
   border-radius: 50%;
   display: block;
-  margin: 0 auto 22px;
+  margin: 0 auto 18px;
   object-fit: cover;
   background: #000;
 }
 
 .profile__role {
-  font-size: 2.55rem;
-  margin-bottom: 32px;
+  font-size: 2.17rem;
+  margin-bottom: 24px;
 }
 
 .links {
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .social-link {
   display: grid;
-  grid-template-columns: 66px 1fr;
+  grid-template-columns: 56px 1fr;
   align-items: center;
-  gap: 16px;
-  border-radius: 20px;
+  gap: 14px;
+  border-radius: 16px;
   text-decoration: none;
   color: var(--text);
-  padding: 10px 14px;
+  padding: 8px 12px;
   background: rgba(7, 10, 17, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .social-link__icon-wrap {
-  width: 66px;
-  height: 66px;
-  border-radius: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 13px;
   display: grid;
   place-items: center;
   background: rgba(255, 255, 255, 0.08);
 }
 
 .social-link img {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 
 .social-link__text {
-  font-size: 2.55rem;
+  font-size: 2.17rem;
 }
 
 .player {
   margin-top: auto;
-  padding-top: 40px;
+  padding-top: 24px;
   opacity: 0;
   animation: itemReveal 0.6s 1.8s ease forwards;
 }
@@ -144,50 +145,50 @@ body::after {
 .player-shell {
   background: var(--panel);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 34px;
-  padding: 20px 22px;
+  border-radius: 26px;
+  padding: 14px 16px;
 }
 
 .track-line {
-  min-height: 38px;
-  margin-bottom: 14px;
+  min-height: 28px;
+  margin-bottom: 8px;
   text-align: center;
-  font-size: 2.38rem;
+  font-size: 2.02rem;
 }
 
 input[type='range'] {
   width: 100%;
   accent-color: #fff;
-  margin: 2px 0 18px;
+  margin: 2px 0 12px;
 }
 
 .controls {
   display: flex;
   justify-content: center;
-  gap: 26px;
+  gap: 18px;
 }
 
 .icon-btn {
   border: none;
-  width: 82px;
-  height: 66px;
-  border-radius: 18px;
+  width: 68px;
+  height: 54px;
+  border-radius: 14px;
   background: rgba(255, 255, 255, 0.09);
   cursor: pointer;
 }
 
 .icon-btn img {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   object-fit: contain;
 }
 
 .credits {
-  margin-top: 24px;
+  margin-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
-  padding-top: 20px;
+  padding-top: 14px;
   text-align: center;
-  font-size: 2.04rem;
+  font-size: 1.73rem;
   color: rgba(243, 244, 246, 0.8);
 }
 
@@ -208,27 +209,60 @@ input[type='range'] {
   }
 
   .card {
-    height: min(760px, calc(100dvh - 16px));
-    border-radius: 30px;
-    padding: 30px 20px 20px;
     width: min(95vw, 380px);
+    height: min(760px, calc(100dvh - 16px));
+    border-radius: 28px;
+    padding: 24px 16px 16px;
   }
 
-  .profile__name { font-size: 1.79rem; }
-  .profile__avatar { width: min(130px, 34vw); margin-bottom: 16px; }
-  .profile__role { font-size: 0.94rem; margin-bottom: 18px; }
+  .profile__name { font-size: 1.52rem; }
+  .profile__avatar { width: min(112px, 32vw); margin-bottom: 14px; }
+  .profile__role { font-size: 0.8rem; margin-bottom: 14px; }
 
-  .social-link { grid-template-columns: 44px 1fr; gap: 10px; padding: 7px 9px; }
-  .social-link__icon-wrap { width: 44px; height: 44px; border-radius: 10px; }
-  .social-link img { width: 25px; height: 25px; }
-  .social-link__text { font-size: 0.89rem; }
+  .social-link { grid-template-columns: 40px 1fr; gap: 8px; padding: 6px 8px; border-radius: 12px; }
+  .social-link__icon-wrap { width: 40px; height: 40px; border-radius: 9px; }
+  .social-link img { width: 22px; height: 22px; }
+  .social-link__text { font-size: 0.76rem; }
 
-  .player { padding-top: 20px; }
-  .player-shell { border-radius: 20px; padding: 12px; }
-  .track-line { font-size: 0.94rem; min-height: 22px; margin-bottom: 8px; }
-  .controls { gap: 10px; }
-  .icon-btn { width: 40px; height: 38px; border-radius: 10px; }
-  .icon-btn img { width: 20px; height: 20px; }
+  .player { padding-top: 14px; }
+  .player-shell { border-radius: 16px; padding: 10px; }
+  .track-line { font-size: 0.8rem; min-height: 20px; margin-bottom: 6px; }
+  .controls { gap: 8px; }
+  .icon-btn { width: 36px; height: 34px; border-radius: 8px; }
+  .icon-btn img { width: 18px; height: 18px; }
 
-  .credits { font-size: 0.68rem; margin-top: 12px; padding-top: 12px; }
+  .credits { font-size: 0.58rem; margin-top: 10px; padding-top: 10px; }
+}
+
+/* Explicit phone landscape handling for orientation switch */
+@media (max-width: 900px) and (orientation: landscape) {
+  body {
+    padding: 6px;
+  }
+
+  .card {
+    width: min(96vw, 820px);
+    height: calc(100dvh - 12px);
+    padding: 14px 16px 12px;
+    border-radius: 20px;
+  }
+
+  .profile__name { font-size: 1.24rem; margin-bottom: 8px; }
+  .profile__avatar { width: min(76px, 20vh); margin-bottom: 8px; }
+  .profile__role { font-size: 0.68rem; margin-bottom: 8px; }
+
+  .links { gap: 8px; }
+  .social-link { padding: 4px 6px; border-radius: 10px; }
+  .social-link__icon-wrap { width: 30px; height: 30px; }
+  .social-link img { width: 16px; height: 16px; }
+  .social-link__text { font-size: 0.66rem; }
+
+  .player { padding-top: 10px; }
+  .player-shell { padding: 8px; border-radius: 12px; }
+  .track-line { font-size: 0.66rem; min-height: 14px; margin-bottom: 4px; }
+  input[type='range'] { margin: 0 0 6px; }
+  .icon-btn { width: 28px; height: 26px; border-radius: 6px; }
+  .icon-btn img { width: 14px; height: 14px; }
+
+  .credits { margin-top: 8px; padding-top: 8px; font-size: 0.52rem; }
 }
