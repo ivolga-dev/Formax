@@ -20,7 +20,7 @@ body {
   background: #2b2d33;
 }
 img {
-    max-width: 70%;
+    max-width: 10%;
     height: auto; /* Сохраняет пропорции */
 }
 .container {
